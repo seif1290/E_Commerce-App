@@ -17,7 +17,7 @@ class AppTextTheme {
     labelMedium: TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal),
   );
 
-  static TextTheme lightTextTheme = _baseTextTheme.copyWith(
+  static final TextTheme lightTextTheme = _baseTextTheme.copyWith(
     headlineLarge: _baseTextTheme.headlineLarge?.copyWith(color: Colors.black),
     headlineMedium: _baseTextTheme.headlineMedium?.copyWith(
       color: Colors.black,
@@ -37,7 +37,7 @@ class AppTextTheme {
     ),
   );
 
-  static TextTheme darkTextTheme = _baseTextTheme.copyWith(
+  static final TextTheme darkTextTheme = _baseTextTheme.copyWith(
     headlineLarge: _baseTextTheme.headlineLarge?.copyWith(color: Colors.white),
     headlineMedium: _baseTextTheme.headlineMedium?.copyWith(
       color: Colors.white,
