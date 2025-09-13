@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextTheme {
@@ -18,42 +19,62 @@ class AppTextTheme {
   );
 
   static final TextTheme lightTextTheme = _baseTextTheme.copyWith(
-    headlineLarge: _baseTextTheme.headlineLarge?.copyWith(color: Colors.black),
+    headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+      color: AppColors.textPrimary,
+    ),
     headlineMedium: _baseTextTheme.headlineMedium?.copyWith(
-      color: Colors.black,
+      color: AppColors.textPrimary,
     ),
-    headlineSmall: _baseTextTheme.headlineSmall?.copyWith(color: Colors.black),
-    titleLarge: _baseTextTheme.titleLarge?.copyWith(color: Colors.black),
-    titleMedium: _baseTextTheme.titleMedium?.copyWith(color: Colors.black),
-    titleSmall: _baseTextTheme.titleSmall?.copyWith(color: Colors.black),
-    bodyLarge: _baseTextTheme.bodyLarge?.copyWith(color: Colors.black),
-    bodyMedium: _baseTextTheme.bodyMedium?.copyWith(color: Colors.black),
+    headlineSmall: _baseTextTheme.headlineSmall?.copyWith(
+      color: AppColors.textPrimary,
+    ),
+    titleLarge: _baseTextTheme.titleLarge?.copyWith(
+      color: AppColors.textPrimary,
+    ),
+    titleMedium: _baseTextTheme.titleMedium?.copyWith(
+      color: AppColors.textPrimary,
+    ),
+    titleSmall: _baseTextTheme.titleSmall?.copyWith(
+      color: AppColors.textPrimary,
+    ),
+    bodyLarge: _baseTextTheme.bodyLarge?.copyWith(color: AppColors.textPrimary),
+    bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
+      color: AppColors.textPrimary,
+    ),
     bodySmall: _baseTextTheme.bodySmall?.copyWith(
-      color: Colors.black.withValues(alpha: 0.5),
+      color: AppColors.textPrimary.withValues(alpha: 0.5),
     ),
-    labelLarge: _baseTextTheme.labelLarge?.copyWith(color: Colors.black),
+    labelLarge: _baseTextTheme.labelLarge?.copyWith(
+      color: AppColors.textPrimary,
+    ),
     labelMedium: _baseTextTheme.labelMedium?.copyWith(
-      color: Colors.black.withValues(alpha: 0.5),
+      color: AppColors.textPrimary.withValues(alpha: 0.5),
     ),
   );
 
   static final TextTheme darkTextTheme = _baseTextTheme.copyWith(
-    headlineLarge: _baseTextTheme.headlineLarge?.copyWith(color: Colors.white),
+    headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+      color: AppColors.textWhite,
+    ),
     headlineMedium: _baseTextTheme.headlineMedium?.copyWith(
-      color: Colors.white,
+      color: AppColors.textWhite,
     ),
-    headlineSmall: _baseTextTheme.headlineSmall?.copyWith(color: Colors.white),
-    titleLarge: _baseTextTheme.titleLarge?.copyWith(color: Colors.white),
-    titleMedium: _baseTextTheme.titleMedium?.copyWith(color: Colors.white),
-    titleSmall: _baseTextTheme.titleSmall?.copyWith(color: Colors.white),
-    bodyLarge: _baseTextTheme.bodyLarge?.copyWith(color: Colors.white),
-    bodyMedium: _baseTextTheme.bodyMedium?.copyWith(color: Colors.white),
+    headlineSmall: _baseTextTheme.headlineSmall?.copyWith(
+      color: AppColors.textWhite,
+    ),
+    titleLarge: _baseTextTheme.titleLarge?.copyWith(color: AppColors.textWhite),
+    titleMedium: _baseTextTheme.titleMedium?.copyWith(
+      color: AppColors.textWhite,
+    ),
+    titleSmall: _baseTextTheme.titleSmall?.copyWith(color: AppColors.textWhite),
+    bodyLarge: _baseTextTheme.bodyLarge?.copyWith(color: AppColors.textWhite),
+    bodyMedium: _baseTextTheme.bodyMedium?.copyWith(color: AppColors.textWhite),
     bodySmall: _baseTextTheme.bodySmall?.copyWith(
-      color: Colors.white.withValues(alpha: 0.5),
+      color: AppColors.textWhite.withValues(alpha: 0.5),
     ),
-    labelLarge: _baseTextTheme.labelLarge?.copyWith(color: Colors.white),
+    labelLarge: _baseTextTheme.labelLarge?.copyWith(color: AppColors.textWhite),
     labelMedium: _baseTextTheme.labelMedium?.copyWith(
-      color: Colors.white.withValues(alpha: 0.5),
+      color: AppColors.textWhite.withValues(alpha: 0.5),
     ),
   );
 }

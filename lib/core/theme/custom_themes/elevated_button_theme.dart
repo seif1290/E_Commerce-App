@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppElevatedButtonTheme {
@@ -5,9 +6,9 @@ class AppElevatedButtonTheme {
   static final _elevatedButtonStyleForm = ElevatedButton.styleFrom(
     elevation: 0,
     foregroundColor: Colors.white,
-    backgroundColor: Colors.blue,
-    disabledBackgroundColor: Colors.grey,
-    disabledForegroundColor: Colors.grey,
+    backgroundColor: AppColors.buttonPrimary,
+    disabledBackgroundColor: AppColors.buttonSecondary,
+    disabledForegroundColor: AppColors.textSecondary,
     side: const BorderSide(color: Colors.blue),
     padding: const EdgeInsets.symmetric(vertical: 18),
     textStyle: TextStyle(
