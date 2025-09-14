@@ -1,8 +1,9 @@
 import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/register_view.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_view.dart';
-import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -10,7 +11,7 @@ class AppRouter {
   AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: RoutePath.onboarding,
+    initialLocation: RoutePath.login,
 
     routes: [
       GoRoute(
@@ -22,7 +23,12 @@ class AppRouter {
       GoRoute(
         name: RouteName.login,
         path: RoutePath.login,
-        builder: (context, state) => Scaffold(),
+        builder: (context, state) => LoginView(),
+      ),
+      GoRoute(
+        name: RouteName.register,
+        path: RoutePath.register,
+        builder: (context, state) => RegisterView(),
       ),
     ],
   );
