@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
@@ -13,11 +14,7 @@ class RegisterView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(),
         body: Padding(
-          padding: const EdgeInsets.only(
-            left: AppValues.md,
-            right: AppValues.md,
-            top: AppValues.xl,
-          ),
+          padding: AppComponents.pagePadding,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

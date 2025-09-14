@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/features/auth/presentation/view/email_verification_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/register_view.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
@@ -11,7 +12,7 @@ class AppRouter {
   AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: RoutePath.login,
+    initialLocation: RoutePath.emailVerification,
 
     routes: [
       GoRoute(
@@ -29,6 +30,12 @@ class AppRouter {
         name: RouteName.register,
         path: RoutePath.register,
         builder: (context, state) => RegisterView(),
+      ),
+      GoRoute(
+        name: RouteName.emailVerification,
+        path: RoutePath.emailVerification,
+        builder: (context, state) =>
+            EmailVerificationView(email: 'example@mail.com'),
       ),
     ],
   );

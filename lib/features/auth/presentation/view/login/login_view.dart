@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/core/utils/constants/app_colors.dart';
+import 'package:e_commerce/core/utils/constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
@@ -16,11 +17,7 @@ class LoginView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(
-            left: AppValues.md,
-            right: AppValues.md,
-            top: AppValues.xl,
-          ),
+          padding: AppComponents.pagePadding,
           child: SingleChildScrollView(
             child: Column(
               children: [

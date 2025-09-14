@@ -36,5 +36,10 @@ class AppStrings {
   static const String firstName = 'First Name';
   static const String lastname = 'Last Name';
   static const String userName = 'User Name';
-  // static const String agreeToPolicy = '';
+
+  // Email verification
+  static const String emailVerificationTitle = 'Email Verification';
+  static const String emailVerificationSubTitle =
+      'Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.';
+  static const String emailVerificationButton = 'Continue';
 }
