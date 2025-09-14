@@ -27,7 +27,7 @@ class AppColors {
 
   // Background Container Colors
   static const Color lightContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = AppColors.textWhite.withValues(alpha: 0.1);
+  static Color darkContainer = Colors.white.withValues(alpha: 0.1);
 
   // Button Colors
   static const Color buttonPrimary = Color(0xFF4b68ff);
@@ -36,7 +36,7 @@ class AppColors {
 
   // Border Colors
   static const Color borderPrimary = Color(0xFFD9D9D9);
-  static const Color borderSecondary = Color(0xFFE6E6E6);
+  static const Color borderSecondary = Color(0xFF4F4F4F);
 
   // Error and Validation Colors
   static const Color error = Color(0xFFD32F2F);

@@ -17,4 +17,17 @@ class AppStrings {
   // Home
   static const String homeAppBarTitle = 'Good Day For Shopping';
   static const String homeAppBarSubTitle = 'User Name';
+
+  // Login
+  static const String loginHeaderTitle = 'Welcome Back';
+  static const String loginHeaderSubTitle =
+      'Log in to explore products tailored just for you';
+  static const String emailLabelText = 'E-Mail';
+  static const String passwordLabelText = 'Password';
+  static const String rememberMe = 'Remember Me';
+  static const String forgotPassword = 'Forgot Password?';
+  static const String signIn = 'Sign In';
+  static const String createAccount = 'Create Account';
+  static const String signInWith = 'Or Sign In With';
+  static const String signUpWith = 'Or Sign Up With';
 }
