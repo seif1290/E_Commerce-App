@@ -14,22 +14,22 @@ class FormSectionLogin extends StatefulWidget {
 
 class _FormSectionLoginState extends State<FormSectionLogin> {
   late final GlobalKey<FormState> _formKey;
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
+  late final TextEditingController _emailCont;
+  late final TextEditingController _passwordCont;
 
   @override
   void initState() {
     super.initState();
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
+    _emailCont = TextEditingController();
+    _passwordCont = TextEditingController();
     _formKey = GlobalKey<FormState>();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
+    _emailCont.dispose();
+    _passwordCont.dispose();
   }
 
   @override
@@ -40,7 +40,7 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
         children: [
           // Email Text Form Field
           AuthTextFormField(
-            controller: _emailController,
+            controller: _emailCont,
             labelText: AppStrings.emailLabelText,
             keyboardType: TextInputType.emailAddress,
             validator: AppValidators.validateEmail,
@@ -50,7 +50,7 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
 
           // Password Text Form Field
           AuthTextFormField(
-            controller: _passwordController,
+            controller: _passwordCont,
             labelText: AppStrings.passwordLabelText,
             keyboardType: TextInputType.visiblePassword,
             validator: AppValidators.validatePassword,

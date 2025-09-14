@@ -14,6 +14,7 @@ class AuthTextFormField extends StatefulWidget {
     this.textInputAction = TextInputAction.next,
     this.validator = AppValidators.defaultValidate,
     this.onFieldSubmitted,
+    this.labelStyle,
   });
   final String? hintText;
   final String? labelText;
@@ -23,6 +24,7 @@ class AuthTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
+  final TextStyle? labelStyle;
   final String? Function(String?)? validator;
   final Function(String)? onFieldSubmitted;
   @override
@@ -50,6 +52,7 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
+        labelStyle: widget.labelStyle,
         prefixIcon: Icon(widget.prefixIcon),
         suffixIcon: widget.isPassword
             ? IconButton(

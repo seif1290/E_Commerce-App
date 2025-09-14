@@ -33,7 +33,7 @@ class LoginView extends StatelessWidget {
                 // Create Account Button
                 ElevatedButton(
                   onPressed: () {
-                    context.goNamed(RouteName.register);
+                    context.pushNamed(RouteName.register);
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(

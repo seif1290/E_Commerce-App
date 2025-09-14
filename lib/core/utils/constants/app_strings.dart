@@ -30,4 +30,11 @@ class AppStrings {
   static const String createAccount = 'Create Account';
   static const String signInWith = 'Or Sign In With';
   static const String signUpWith = 'Or Sign Up With';
+
+  // Register
+  static const String letsCreateAccount = "Let's create your account";
+  static const String firstName = 'First Name';
+  static const String lastname = 'Last Name';
+  static const String userName = 'User Name';
+  // static const String agreeToPolicy = '';
 }
