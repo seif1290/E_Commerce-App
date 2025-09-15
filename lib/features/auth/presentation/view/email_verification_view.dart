@@ -2,6 +2,7 @@ import 'package:e_commerce/core/utils/constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/app_values.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class EmailVerificationView extends StatefulWidget {
   final String email;
@@ -19,10 +20,11 @@ class _EmailVerificationViewState extends State<EmailVerificationView> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           actions: [
             TextButton(
               onPressed: () {
-                // TODO: Close Button
+                context.pop();
               },
               child: Icon(Icons.close),
             ),

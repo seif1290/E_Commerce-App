@@ -42,4 +42,18 @@ class AppStrings {
   static const String emailVerificationSubTitle =
       'Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.';
   static const String emailVerificationButton = 'Continue';
+
+  // Forgot password
+  static const String forgotPasswordTitle = 'Forgot Password';
+  static const String forgotPasswordSubTitle =
+      'Don\'nt worry, sometimes people can forget too, enter your email and we will send you a password reset link';
+  static const String submit = 'Submit';
+  static const String done = 'Done';
+  static const String forgotPasswordSuccessScreenTitle =
+      'Password Reset Email Sent';
+  static const String forgotPasswordSuccessScreenSubTitle =
+      'We\'ve sent you a secure link to safely change your password';
+  static const String titleMapped = 'title';
+  static const String subTitleMapped = 'subTitle';
+  static const String assetPathMapped = 'assetPath';
 }

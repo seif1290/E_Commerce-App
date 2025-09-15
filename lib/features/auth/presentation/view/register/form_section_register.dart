@@ -1,9 +1,11 @@
+import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/agree_to_privacy_section_register.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/utils/app_validators.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_text_form_field.dart';
+import 'package:go_router/go_router.dart';
 
 class FormSectionRegister extends StatefulWidget {
   const FormSectionRegister({super.key});
@@ -108,18 +110,18 @@ class _FormSectionRegisterState extends State<FormSectionRegister> {
           // Register Button
           ElevatedButton(
             onPressed: () {
-              register();
+              if (_formKey.currentState!.validate()) {
+                context.pushReplacementNamed(
+                  RouteName.emailVerification,
+                  extra: _emailCont.text,
+                );
+                // TODO: Register Logic
+              }
             },
             child: Text(AppStrings.createAccount),
           ),
         ],
       ),
     );
-  }
-
-  void register() {
-    if (_formKey.currentState!.validate()) {
-      // TODO: Register Logic
-    }
   }
 }

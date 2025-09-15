@@ -1,8 +1,12 @@
 import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/core/utils/constants/app_images.dart';
+import 'package:e_commerce/core/utils/constants/app_strings.dart';
 import 'package:e_commerce/features/auth/presentation/view/email_verification_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/register_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/success_view.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_view.dart';
 
@@ -12,7 +16,7 @@ class AppRouter {
   AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: RoutePath.emailVerification,
+    initialLocation: RoutePath.login,
 
     routes: [
       GoRoute(
@@ -35,7 +39,29 @@ class AppRouter {
         name: RouteName.emailVerification,
         path: RoutePath.emailVerification,
         builder: (context, state) =>
-            EmailVerificationView(email: 'example@mail.com'),
+            EmailVerificationView(email: state.extra! as String),
+      ),
+      GoRoute(
+        name: RouteName.forgotPassword,
+        path: RoutePath.forgotPassword,
+        builder: (context, state) => ForgotPasswordView(),
+      ),
+      GoRoute(
+        name: RouteName.success,
+        path: RoutePath.success,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, String>? ?? {};
+          final String title = extra[AppStrings.titleMapped] ?? '';
+          final String subTitle = extra[AppStrings.subTitleMapped] ?? '';
+          final String assetPath =
+              extra[AppStrings.assetPathMapped] ?? AppImages.appLogo;
+
+          return SuccessView(
+            title: title,
+            subTitle: subTitle,
+            assetPath: assetPath,
+          );
+        },
       ),
     ],
   );
