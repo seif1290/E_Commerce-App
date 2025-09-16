@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/onboarding/data/model/onboarding_model.dart';
 import 'package:flutter/material.dart';
 

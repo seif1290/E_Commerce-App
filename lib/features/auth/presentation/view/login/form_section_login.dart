@@ -1,8 +1,8 @@
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce/core/utils/app_validators.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_validators.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_text_form_field.dart';
 import 'package:go_router/go_router.dart';

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user.dart';
+part of 'register_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -11,41 +11,38 @@ part of 'user.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
-mixin _$User {
+mixin _$RegisterModel {
 
  String get email; String get password; String get name;
-/// Create a copy of User
+/// Create a copy of RegisterModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UserCopyWith<User> get copyWith => _$UserCopyWithImpl<User>(this as User, _$identity);
+$RegisterModelCopyWith<RegisterModel> get copyWith => _$RegisterModelCopyWithImpl<RegisterModel>(this as RegisterModel, _$identity);
 
-  /// Serializes this User to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterModel&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,email,password,name);
 
 @override
 String toString() {
-  return 'User(email: $email, password: $password, name: $name)';
+  return 'RegisterModel(email: $email, password: $password, name: $name)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UserCopyWith<$Res>  {
-  factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
+abstract mixin class $RegisterModelCopyWith<$Res>  {
+  factory $RegisterModelCopyWith(RegisterModel value, $Res Function(RegisterModel) _then) = _$RegisterModelCopyWithImpl;
 @useResult
 $Res call({
  String email, String password, String name
@@ -56,14 +53,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$UserCopyWithImpl<$Res>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._self, this._then);
+class _$RegisterModelCopyWithImpl<$Res>
+    implements $RegisterModelCopyWith<$Res> {
+  _$RegisterModelCopyWithImpl(this._self, this._then);
 
-  final User _self;
-  final $Res Function(User) _then;
+  final RegisterModel _self;
+  final $Res Function(RegisterModel) _then;
 
-/// Create a copy of User
+/// Create a copy of RegisterModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,Object? name = null,}) {
   return _then(_self.copyWith(
@@ -77,8 +74,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [User].
-extension UserPatterns on User {
+/// Adds pattern-matching-related methods to [RegisterModel].
+extension RegisterModelPatterns on RegisterModel {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -91,10 +88,10 @@ extension UserPatterns on User {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _User value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RegisterModel value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _User() when $default != null:
+case _RegisterModel() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -113,10 +110,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _User value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RegisterModel value)  $default,){
 final _that = this;
 switch (_that) {
-case _User():
+case _RegisterModel():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -134,10 +131,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _User value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RegisterModel value)?  $default,){
 final _that = this;
 switch (_that) {
-case _User() when $default != null:
+case _RegisterModel() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -157,7 +154,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String email,  String password,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _User() when $default != null:
+case _RegisterModel() when $default != null:
 return $default(_that.email,_that.password,_that.name);case _:
   return orElse();
 
@@ -178,7 +175,7 @@ return $default(_that.email,_that.password,_that.name);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String email,  String password,  String name)  $default,) {final _that = this;
 switch (_that) {
-case _User():
+case _RegisterModel():
 return $default(_that.email,_that.password,_that.name);case _:
   throw StateError('Unexpected subclass');
 
@@ -198,7 +195,7 @@ return $default(_that.email,_that.password,_that.name);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String email,  String password,  String name)?  $default,) {final _that = this;
 switch (_that) {
-case _User() when $default != null:
+case _RegisterModel() when $default != null:
 return $default(_that.email,_that.password,_that.name);case _:
   return null;
 
@@ -208,47 +205,44 @@ return $default(_that.email,_that.password,_that.name);case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _User implements User {
-  const _User({required this.email, required this.password, required this.name});
-  factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+class _RegisterModel implements RegisterModel {
+  const _RegisterModel({required this.email, required this.password, required this.name});
+  
 
 @override final  String email;
 @override final  String password;
 @override final  String name;
 
-/// Create a copy of User
+/// Create a copy of RegisterModel
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UserCopyWith<_User> get copyWith => __$UserCopyWithImpl<_User>(this, _$identity);
+_$RegisterModelCopyWith<_RegisterModel> get copyWith => __$RegisterModelCopyWithImpl<_RegisterModel>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$UserToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _User&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterModel&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,email,password,name);
 
 @override
 String toString() {
-  return 'User(email: $email, password: $password, name: $name)';
+  return 'RegisterModel(email: $email, password: $password, name: $name)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$UserCopyWith(_User value, $Res Function(_User) _then) = __$UserCopyWithImpl;
+abstract mixin class _$RegisterModelCopyWith<$Res> implements $RegisterModelCopyWith<$Res> {
+  factory _$RegisterModelCopyWith(_RegisterModel value, $Res Function(_RegisterModel) _then) = __$RegisterModelCopyWithImpl;
 @override @useResult
 $Res call({
  String email, String password, String name
@@ -259,17 +253,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$UserCopyWithImpl<$Res>
-    implements _$UserCopyWith<$Res> {
-  __$UserCopyWithImpl(this._self, this._then);
+class __$RegisterModelCopyWithImpl<$Res>
+    implements _$RegisterModelCopyWith<$Res> {
+  __$RegisterModelCopyWithImpl(this._self, this._then);
 
-  final _User _self;
-  final $Res Function(_User) _then;
+  final _RegisterModel _self;
+  final $Res Function(_RegisterModel) _then;
 
-/// Create a copy of User
+/// Create a copy of RegisterModel
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,Object? name = null,}) {
-  return _then(_User(
+  return _then(_RegisterModel(
 email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable

@@ -36,6 +36,9 @@ class AppStrings {
   static const String firstName = 'First Name';
   static const String lastname = 'Last Name';
   static const String userName = 'User Name';
+  static const String userIsNullMessage = 'User is Null';
+  static const String somethingWrongMessage =
+      'Opps! Something went wrong. Please try again';
 
   // Email verification
   static const String emailVerificationTitle = 'Email Verification';

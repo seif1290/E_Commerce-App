@@ -3,7 +3,7 @@ import 'package:e_commerce/core/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:e_commerce/core/theme/custom_themes/custom_app_bar_theme.dart';
 import 'package:e_commerce/core/theme/custom_themes/elevated_button_theme.dart';
 import 'package:e_commerce/core/theme/custom_themes/text_form_field_theme.dart';
-import 'package:e_commerce/core/utils/constants/app_colors.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

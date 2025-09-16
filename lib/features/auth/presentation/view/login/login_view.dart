@@ -1,8 +1,8 @@
 import 'package:e_commerce/core/routing/route_path.dart';
-import 'package:e_commerce/core/utils/constants/app_colors.dart';
-import 'package:e_commerce/core/utils/constants/app_components.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_colors.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/form_section_login.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/header_section_login.dart';

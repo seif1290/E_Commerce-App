@@ -1,5 +1,5 @@
-import 'package:e_commerce/core/utils/constants/app_images.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/onboarding/data/model/onboarding_model.dart';
 
 const List<OnboardingModel> onboardingsList = <OnboardingModel>[

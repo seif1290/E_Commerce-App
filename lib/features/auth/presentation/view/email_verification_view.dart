@@ -1,6 +1,6 @@
-import 'package:e_commerce/core/utils/constants/app_images.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

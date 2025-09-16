@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce/core/utils/constants/app_colors.dart';
-import 'package:e_commerce/core/utils/constants/app_images.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_colors.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 
 class AuthOptions extends StatelessWidget {
   const AuthOptions({super.key, this.isLogin = true});

@@ -1,6 +1,6 @@
-import 'package:e_commerce/core/utils/constants/app_components.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
-import 'package:e_commerce/core/utils/constants/app_values.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/form_section_register.dart';
 import 'package:flutter/material.dart';

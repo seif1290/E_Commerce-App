@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/utils/app_validators.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_validators.dart';
 import 'package:flutter/material.dart';
 
 class AuthTextFormField extends StatefulWidget {

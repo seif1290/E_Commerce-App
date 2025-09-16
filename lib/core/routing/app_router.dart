@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/routing/route_path.dart';
-import 'package:e_commerce/core/utils/constants/app_images.dart';
-import 'package:e_commerce/core/utils/constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/auth/presentation/view/email_verification_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart';
