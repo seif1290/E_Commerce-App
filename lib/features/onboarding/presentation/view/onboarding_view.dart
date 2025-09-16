@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/routing/route_name.dart';
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/app_values.dart';
 import 'package:e_commerce/features/onboarding/data/model/onboarding_model.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_details_column.dart';
@@ -31,7 +31,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 
   void finishOnboarding() {
-    context.goNamed(RouteName.login);
+    context.goNamed(RoutePath.login);
   }
 
   @override

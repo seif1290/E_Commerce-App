@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/routing/route_name.dart';
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/app_validators.dart';
 import 'package:e_commerce/core/utils/constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
@@ -76,7 +76,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       context.pushReplacementNamed(
-                        RouteName.success,
+                        RoutePath.success,
                         extra: {
                           AppStrings.titleMapped:
                               AppStrings.forgotPasswordSuccessScreenTitle,

@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/routing/route_name.dart';
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/agree_to_privacy_section_register.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/utils/app_validators.dart';
@@ -112,7 +112,7 @@ class _FormSectionRegisterState extends State<FormSectionRegister> {
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 context.pushReplacementNamed(
-                  RouteName.emailVerification,
+                  RoutePath.emailVerification,
                   extra: _emailCont.text,
                 );
                 // TODO: Register Logic

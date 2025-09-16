@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/routing/route_name.dart';
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/app_colors.dart';
 import 'package:e_commerce/core/utils/constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
@@ -30,7 +30,7 @@ class LoginView extends StatelessWidget {
                 // Create Account Button
                 ElevatedButton(
                   onPressed: () {
-                    context.pushNamed(RouteName.register);
+                    context.pushNamed(RoutePath.register);
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(

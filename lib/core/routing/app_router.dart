@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/routing/route_name.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
@@ -20,34 +19,25 @@ class AppRouter {
 
     routes: [
       GoRoute(
-        name: RouteName.onboarding,
         path: RoutePath.onboarding,
         builder: (context, state) =>
             const OnboardingView(onboardings: onboardingsList),
       ),
+      GoRoute(path: RoutePath.login, builder: (context, state) => LoginView()),
       GoRoute(
-        name: RouteName.login,
-        path: RoutePath.login,
-        builder: (context, state) => LoginView(),
-      ),
-      GoRoute(
-        name: RouteName.register,
         path: RoutePath.register,
         builder: (context, state) => RegisterView(),
       ),
       GoRoute(
-        name: RouteName.emailVerification,
         path: RoutePath.emailVerification,
         builder: (context, state) =>
             EmailVerificationView(email: state.extra! as String),
       ),
       GoRoute(
-        name: RouteName.forgotPassword,
         path: RoutePath.forgotPassword,
         builder: (context, state) => ForgotPasswordView(),
       ),
       GoRoute(
-        name: RouteName.success,
         path: RoutePath.success,
         builder: (context, state) {
           final extra = state.extra as Map<String, String>? ?? {};

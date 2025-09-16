@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/routing/route_name.dart';
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/utils/app_validators.dart';
 import 'package:e_commerce/core/utils/constants/app_strings.dart';
@@ -73,7 +73,7 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
               const Spacer(),
               TextButton(
                 onPressed: () {
-                  context.pushNamed(RouteName.forgotPassword);
+                  context.pushNamed(RoutePath.forgotPassword);
                 },
                 child: Text(AppStrings.forgotPassword),
               ),
