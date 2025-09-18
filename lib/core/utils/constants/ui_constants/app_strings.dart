@@ -1,5 +1,6 @@
 class AppStrings {
   AppStrings._();
+  static const String appName = 'ShopEase';
 
   // OnBoarding Titles
   static const String onBoardingTitle1 = 'Discover Products';

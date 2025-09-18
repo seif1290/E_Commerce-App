@@ -6,9 +6,9 @@ import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  final AuthDataSource _authDataSource;
+  late final SupabaseAuthDataSource _authDataSource;
 
-  AuthRepoImpl({required AuthDataSource authDataSource})
+  AuthRepoImpl({required SupabaseAuthDataSource authDataSource})
     : _authDataSource = authDataSource;
 
   @override

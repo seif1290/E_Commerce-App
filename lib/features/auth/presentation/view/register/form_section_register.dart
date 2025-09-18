@@ -1,11 +1,12 @@
-import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/agree_to_privacy_section_register.dart';
+import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_validators.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_text_form_field.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormSectionRegister extends StatefulWidget {
   const FormSectionRegister({super.key});
@@ -109,16 +110,20 @@ class _FormSectionRegisterState extends State<FormSectionRegister> {
 
           // Register Button
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState!.validate()) {
-                context.pushReplacementNamed(
-                  RoutePath.emailVerification,
-                  extra: _emailCont.text,
+                await context.read<AuthCubit>().register(
+                  registerModel: RegisterModel(
+                    firstName: _firstNameCont.text,
+                    lastName: _lastNameCont.text,
+                    userName: _userNameCont.text,
+                    email: _emailCont.text,
+                    password: _passwordCont.text,
+                  ),
                 );
-                // TODO: Register Logic
               }
             },
-            child: Text(AppStrings.createAccount),
+            child: const Text(AppStrings.createAccount),
           ),
         ],
       ),

@@ -1,13 +1,19 @@
+import 'package:e_commerce/core/di/service_locator.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
 import 'package:e_commerce/features/auth/presentation/view/email_verification_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/success_view.dart';
+import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
+import 'package:e_commerce/features/home/presentation/view/home_view.dart';
+import 'package:e_commerce/features/loading/presentation/view/loading_view.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -15,19 +21,39 @@ class AppRouter {
   AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: RoutePath.login,
-
     routes: [
+      // Loading
+      GoRoute(
+        path: RoutePath.loading,
+        builder: (context, state) => const LoadingView(),
+      ),
+
+      // Onboarding
       GoRoute(
         path: RoutePath.onboarding,
         builder: (context, state) =>
             const OnboardingView(onboardings: onboardingsList),
       ),
-      GoRoute(path: RoutePath.login, builder: (context, state) => LoginView()),
+
+      // Auth
       GoRoute(
-        path: RoutePath.register,
-        builder: (context, state) => RegisterView(),
+        path: RoutePath.login,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => AuthCubit(authRepo: getIt.get<AuthRepo>()),
+            child: LoginView(),
+          );
+        },
+        routes: [
+          GoRoute(
+            path: 'register',
+            builder: (context, state) {
+              return RegisterView(authCubit: state.extra as AuthCubit);
+            },
+          ),
+        ],
       ),
+
       GoRoute(
         path: RoutePath.emailVerification,
         builder: (context, state) =>
@@ -53,6 +79,9 @@ class AppRouter {
           );
         },
       ),
+
+      // Home
+      GoRoute(path: RoutePath.home, builder: (context, state) => HomeView()),
     ],
   );
 

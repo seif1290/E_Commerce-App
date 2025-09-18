@@ -1,17 +1,16 @@
 import 'package:e_commerce/core/error_handling/server_exception.dart';
-import 'package:e_commerce/core/utils/constants/data_constants/app_keys.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-abstract interface class AuthDataSource {
+abstract interface class SupabaseAuthDataSource {
   Future<String> register({required RegisterModel registerModel});
 }
 
-class AuthDataSourceImpl implements AuthDataSource {
-  final SupabaseClient _supabaseClient;
+class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
+  late final SupabaseClient _supabaseClient;
 
-  AuthDataSourceImpl({required SupabaseClient supabaseClient})
+  SupabaseAuthDataSourceImpl({required SupabaseClient supabaseClient})
     : _supabaseClient = supabaseClient;
 
   @override
@@ -20,7 +19,7 @@ class AuthDataSourceImpl implements AuthDataSource {
       final authResponse = await _supabaseClient.auth.signUp(
         email: registerModel.email,
         password: registerModel.password,
-        data: {AppKeys.name: registerModel.name},
+        data: registerModel.toJson(),
       );
       if (authResponse.user != null) {
         return authResponse.user!.id;

@@ -6,7 +6,9 @@ import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/form_section_login.dart';
 import 'package:e_commerce/features/auth/presentation/view/login/header_section_login.dart';
+import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginView extends StatelessWidget {
@@ -30,7 +32,10 @@ class LoginView extends StatelessWidget {
                 // Create Account Button
                 ElevatedButton(
                   onPressed: () {
-                    context.pushNamed(RoutePath.register);
+                    context.push(
+                      RoutePath.register,
+                      extra: context.read<AuthCubit>(),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(
