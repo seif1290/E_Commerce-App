@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/error_handling/local_exception.dart';
 import 'package:e_commerce/core/utils/constants/data_constants/app_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,14 +9,22 @@ class SharedPrefsService {
   }
 
   Future<void> startOnBoarding() async {
-    await _prefs.setBool(AppKeys.isOnboardingFinished, false);
+    try {
+      await _prefs.setBool(AppKeys.isOnboardingFinished, false);
+    } catch (e) {
+      throw LocalException(message: e.toString());
+    }
   }
 
   Future<void> finishOnBoarding() async {
-    await _prefs.setBool(AppKeys.isOnboardingFinished, true);
+    try {
+      await _prefs.setBool(AppKeys.isOnboardingFinished, true);
+    } catch (e) {
+      throw LocalException(message: e.toString());
+    }
   }
 
-  bool isOnboardingFinished() =>
+  bool get isOnboardingFinished =>
       _prefs.getBool(AppKeys.isOnboardingFinished) ?? false;
 
   Future<void> clear() async {

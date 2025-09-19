@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/di/service_locator.dart';
+import 'package:e_commerce/core/di/setup.dart';
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';

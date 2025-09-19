@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/di/init_auth.dart';
-import 'package:e_commerce/core/services/shared_preferences_service.dart';
+import 'package:e_commerce/core/services/shared_prefs_service.dart';
 import 'package:e_commerce/core/utils/secrets/app_secrets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';

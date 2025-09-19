@@ -1,14 +1,21 @@
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/onboarding/data/model/onboarding_model.dart';
+import 'package:e_commerce/features/onboarding/data/repos/onboarding_repo.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_details_column.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
-  const OnboardingView({super.key, required this.onboardings});
-  final List<OnboardingModel> onboardings;
+  const OnboardingView({
+    super.key,
+    required List<OnboardingModel> onboardings,
+    required OnboardingRepo onboardingRepo,
+  }) : _onboardings = onboardings,
+       _onboardingRepo = onboardingRepo;
+  final List<OnboardingModel> _onboardings;
+  final OnboardingRepo _onboardingRepo;
 
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
@@ -30,8 +37,11 @@ class _OnboardingViewState extends State<OnboardingView> {
     _pageController.dispose();
   }
 
-  void finishOnboarding() {
-    context.goNamed(RoutePath.login);
+  Future<void> finishOnboarding() async {
+    await widget._onboardingRepo.finishOnboarding();
+    if (mounted) {
+      context.go(RoutePath.login);
+    }
   }
 
   @override
@@ -49,7 +59,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (_currentIndex == widget.onboardings.length - 1) {
+          if (_currentIndex == widget._onboardings.length - 1) {
             finishOnboarding();
           } else {
             _pageController.animateToPage(
@@ -73,9 +83,9 @@ class _OnboardingViewState extends State<OnboardingView> {
               onPageChanged: (value) {
                 _currentIndex = value;
               },
-              children: List.generate(widget.onboardings.length, (index) {
+              children: List.generate(widget._onboardings.length, (index) {
                 return OnboardingDetailsColumn(
-                  onboardingModel: widget.onboardings[index],
+                  onboardingModel: widget._onboardings[index],
                 );
               }),
             ),
@@ -84,7 +94,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               alignment: Alignment.bottomLeft,
               child: SmoothPageIndicator(
                 controller: _pageController,
-                count: widget.onboardings.length,
+                count: widget._onboardings.length,
               ),
             ),
           ],
