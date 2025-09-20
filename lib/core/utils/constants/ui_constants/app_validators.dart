@@ -49,4 +49,14 @@ class AppValidators {
     }
     return errorMessage.isEmpty ? null : errorMessage;
   }
+
+  static String? validateConfirmPassword({String? value, String? password}) {
+    if (value == null || value.isEmpty) {
+      return 'Please confirm your password.';
+    }
+    if (value != password) {
+      return '- Password does not match.\n';
+    }
+    return null;
+  }
 }

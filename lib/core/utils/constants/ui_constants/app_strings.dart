@@ -25,6 +25,7 @@ class AppStrings {
       'Log in to explore products tailored just for you';
   static const String emailLabelText = 'E-Mail';
   static const String passwordLabelText = 'Password';
+  static const String confirmPasswordLabelText = 'Confirm Password';
   static const String rememberMe = 'Remember Me';
   static const String forgotPassword = 'Forgot Password?';
   static const String signIn = 'Sign In';
