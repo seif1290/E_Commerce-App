@@ -37,7 +37,7 @@ class _OnboardingViewState extends State<OnboardingView> {
     _pageController.dispose();
   }
 
-  Future<void> finishOnboarding() async {
+  Future<void> _finishOnboarding() async {
     await widget._onboardingRepo.finishOnboarding();
     if (mounted) {
       context.go(RoutePath.login);
@@ -50,17 +50,17 @@ class _OnboardingViewState extends State<OnboardingView> {
       appBar: AppBar(
         actions: [
           TextButton(
-            onPressed: () {
-              finishOnboarding();
+            onPressed: () async {
+              await _finishOnboarding();
             },
             child: Text('Skip'),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           if (_currentIndex == widget._onboardings.length - 1) {
-            finishOnboarding();
+            await _finishOnboarding();
           } else {
             _pageController.animateToPage(
               _currentIndex + 1,

@@ -7,22 +7,32 @@ class OnboardingDetailsColumn extends StatelessWidget {
   final OnboardingModel onboardingModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(onboardingModel.image),
-        const SizedBox(height: AppValues.xl),
-        Text(
-          onboardingModel.title,
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-        const SizedBox(height: AppValues.md),
-        Text(
-          onboardingModel.subTitle,
-          style: Theme.of(context).textTheme.bodyMedium,
-          textAlign: TextAlign.center,
-        ),
-      ],
+    final screenHeight = MediaQuery.sizeOf(context).height;
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: screenHeight * 0.3,
+            width: screenWidth * 0.8,
+            child: Image.asset(onboardingModel.image, fit: BoxFit.contain),
+          ),
+          const SizedBox(height: AppValues.lg),
+
+          Text(
+            onboardingModel.title,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const SizedBox(height: AppValues.md),
+
+          Text(
+            onboardingModel.subTitle,
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

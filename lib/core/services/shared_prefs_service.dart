@@ -4,9 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefsService {
   final SharedPreferences _prefs;
-  SharedPrefsService(this._prefs) {
-    startOnBoarding();
-  }
+  SharedPrefsService(this._prefs);
 
   Future<void> startOnBoarding() async {
     try {
