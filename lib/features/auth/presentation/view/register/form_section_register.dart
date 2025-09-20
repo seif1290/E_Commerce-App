@@ -100,6 +100,21 @@ class _FormSectionRegisterState extends State<FormSectionRegister> {
             validator: AppValidators.validatePassword,
             prefixIcon: Icons.password_outlined,
             isPassword: true,
+          ),
+          const SizedBox(height: AppValues.spaceBtwItems),
+
+          // Confirm Password Text Form Field
+          AuthTextFormField(
+            labelText: AppStrings.confirmPasswordLabelText,
+            keyboardType: TextInputType.visiblePassword,
+            validator: (value) {
+              return AppValidators.validateConfirmPassword(
+                value: value,
+                password: _passwordCont.text,
+              );
+            },
+            prefixIcon: Icons.password_outlined,
+            isPassword: true,
             textInputAction: TextInputAction.done,
           ),
           const SizedBox(height: AppValues.spaceBtwItems),
