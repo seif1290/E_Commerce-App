@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
@@ -10,6 +11,7 @@ import 'package:e_commerce/features/auth/presentation/view/register/form_section
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key, required AuthCubit authCubit})
@@ -27,14 +29,10 @@ class RegisterView extends StatelessWidget {
               snackMessage: errMsg,
               snackBarState: SnackBarState.error,
             ),
-            success: (userEntity) {
-              log(userEntity.toString());
-              return AppComponents.showSnackBar(
-                context,
-                snackMessage: 'registered',
-                snackBarState: SnackBarState.success,
-              );
-            },
+            success: (userEntity) => context.go(
+              RoutePath.emailVerification,
+              extra: userEntity.email,
+            ),
           );
         },
         child: SafeArea(
@@ -55,7 +53,7 @@ class RegisterView extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                         const SizedBox(height: AppValues.spaceBtwSections),
-                        FormSectionRegister(),
+                        const FormSectionRegister(),
                         const SizedBox(height: AppValues.spaceBtwSections),
                         const AuthOptions(isLogin: false),
                       ],

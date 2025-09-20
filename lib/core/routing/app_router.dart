@@ -10,8 +10,11 @@ import 'package:e_commerce/features/auth/presentation/view/register/register_vie
 import 'package:e_commerce/features/auth/presentation/view/success_view.dart';
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:e_commerce/features/home/presentation/view/home_view.dart';
+import 'package:e_commerce/features/loading/data/repos/loading_repo.dart';
 import 'package:e_commerce/features/loading/presentation/view/loading_view.dart';
+import 'package:e_commerce/features/loading/presentation/view_model.dart/loading_cubit.dart/loading_cubit.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
+import 'package:e_commerce/features/onboarding/data/repos/onboarding_repo.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,14 +28,21 @@ class AppRouter {
       // Loading
       GoRoute(
         path: RoutePath.loading,
-        builder: (context, state) => const LoadingView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              LoadingCubit(loadingRepo: getIt.get<LoadingRepo>()),
+
+          child: const LoadingView(),
+        ),
       ),
 
       // Onboarding
       GoRoute(
         path: RoutePath.onboarding,
-        builder: (context, state) =>
-            const OnboardingView(onboardings: onboardingsList),
+        builder: (context, state) => OnboardingView(
+          onboardings: onboardingsList,
+          onboardingRepo: getIt.get<OnboardingRepo>(),
+        ),
       ),
 
       // Auth
