@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/utils/constants/data_constants/app_keys.dart';
-import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
+import 'package:e_commerce/core/shared/entities/user_entity.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel extends UserEntity {
