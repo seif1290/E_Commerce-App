@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce/core/error_handling/server_exception.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
@@ -21,8 +23,9 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
         password: registerModel.password,
         data: registerModel.toJson(),
       );
+      log('is session null: ${authResponse.session.toString()}');
       if (authResponse.user != null) {
-        return UserModel.fromAuthResponseUser(user: authResponse.user!);
+        return UserModel.fromAuthResponse(authResponse: authResponse);
       } else {
         throw ServerException(message: 'User is null');
       }

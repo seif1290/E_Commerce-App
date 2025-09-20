@@ -9,15 +9,17 @@ class UserModel extends UserEntity {
     required super.firstName,
     required super.lastName,
     required super.userName,
+    required super.isEmailConfirmed,
   });
 
-  factory UserModel.fromAuthResponseUser({required User user}) {
+  factory UserModel.fromAuthResponse({required AuthResponse authResponse}) {
     return UserModel(
-      uid: user.id,
-      email: user.email!,
-      firstName: user.userMetadata![AppKeys.firstName],
-      lastName: user.userMetadata![AppKeys.lastName],
-      userName: user.userMetadata![AppKeys.userName],
+      uid: authResponse.user!.id,
+      email: authResponse.user!.email!,
+      firstName: authResponse.user!.userMetadata![AppKeys.firstName],
+      lastName: authResponse.user!.userMetadata![AppKeys.lastName],
+      userName: authResponse.user!.userMetadata![AppKeys.userName],
+      isEmailConfirmed: authResponse.session != null,
     );
   }
 }
