@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/services/shared_prefs_service.dart';
 import 'package:e_commerce/core/utils/secrets/app_secrets.dart';
+import 'package:e_commerce/features/loading/data/data_sources/loading_data_source.dart';
 import 'package:e_commerce/features/loading/data/repos/loading_repo.dart';
 import 'package:e_commerce/features/loading/data/repos/loading_repo_impl.dart';
 import 'package:e_commerce/features/onboarding/data/repos/onboarding_repo.dart';
@@ -28,18 +29,15 @@ Future<void> setup() async {
   getIt.registerSingleton<SupabaseClient>(Supabase.instance.client);
 
   //Loading
-  getIt.registerSingleton<LoadingRepo>(
-    LoadingRepoImpl(sharedPrefsService: getIt.get<SharedPrefsService>()),
-  );
 
   // Onboarding
   getIt.registerLazySingleton(
     () => OnboardingRepo(sharedPrefsService: getIt.get<SharedPrefsService>()),
   );
 
-  // Auth
-
   _initAuth();
+
+  _initLoading();
 }
 
 void _initAuth() {
@@ -52,5 +50,17 @@ void _initAuth() {
   // Repos
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(authDataSource: getIt.get<SupabaseAuthDataSource>()),
+  );
+}
+
+void _initLoading() {
+  getIt.registerSingleton<LoadingDataSource>(
+    LoadingDataSourceImpl(supabaseClient: getIt.get<SupabaseClient>()),
+  );
+  getIt.registerSingleton<LoadingRepo>(
+    LoadingRepoImpl(
+      sharedPrefsService: getIt.get<SharedPrefsService>(),
+      loadingDataSource: getIt.get<LoadingDataSource>(),
+    ),
   );
 }
