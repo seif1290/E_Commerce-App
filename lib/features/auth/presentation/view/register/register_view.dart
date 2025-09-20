@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
@@ -25,11 +27,14 @@ class RegisterView extends StatelessWidget {
               snackMessage: errMsg,
               snackBarState: SnackBarState.error,
             ),
-            success: (userId) => AppComponents.showSnackBar(
-              context,
-              snackMessage: 'registered',
-              snackBarState: SnackBarState.success,
-            ),
+            success: (userEntity) {
+              log(userEntity.toString());
+              return AppComponents.showSnackBar(
+                context,
+                snackMessage: 'registered',
+                snackBarState: SnackBarState.success,
+              );
+            },
           );
         },
         child: SafeArea(

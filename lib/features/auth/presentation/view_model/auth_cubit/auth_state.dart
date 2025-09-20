@@ -5,5 +5,5 @@ class AuthState with _$AuthState {
   const factory AuthState.initial() = _Initial;
   const factory AuthState.loading() = _Loading;
   const factory AuthState.failure({required String errMsg}) = _Failure;
-  const factory AuthState.success({required String userId}) = _Success;
+  const factory AuthState.success({required UserEntity userEntity}) = _Success;
 }
