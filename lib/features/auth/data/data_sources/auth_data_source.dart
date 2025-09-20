@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce/core/error_handling/server_exception.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
-import 'package:e_commerce/features/auth/data/models/user_model.dart';
+import 'package:e_commerce/core/shared/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class SupabaseAuthDataSource {
