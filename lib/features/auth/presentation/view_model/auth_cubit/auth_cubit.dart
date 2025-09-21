@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_commerce/core/error_handling/server_exception.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/auth/data/models/login_model.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
@@ -27,9 +28,9 @@ class AuthCubit extends Cubit<AuthState> {
           emit(AuthState.success(userEntity: userEntity));
         },
       );
-    } catch (e) {
+    } on ServerException catch (e) {
       debugPrint(e.toString());
-      emit(AuthState.failure(errMsg: AppStrings.somethingWrongMessage));
+      emit(AuthState.failure(errMsg: e.message));
     }
   }
 
@@ -45,8 +46,9 @@ class AuthCubit extends Cubit<AuthState> {
           emit(AuthState.success(userEntity: userEntity));
         },
       );
-    } catch (e) {
-      emit(AuthState.failure(errMsg: AppStrings.somethingWrongMessage));
+    } on ServerException catch (e) {
+      debugPrint(e.toString());
+      emit(AuthState.failure(errMsg: e.message));
     }
   }
 }

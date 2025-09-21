@@ -18,17 +18,16 @@ class AppComponents {
     required SnackBarState snackBarState,
   }) => ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
+      backgroundColor: snackBarState == SnackBarState.success
+          ? AppColors.success
+          : snackBarState == SnackBarState.error
+          ? AppColors.error
+          : snackBarState == SnackBarState.warning
+          ? AppColors.warning
+          : AppColors.info,
       content: Text(
         snackMessage,
-        style: Theme.of(context).textTheme.labelLarge!.copyWith(
-          color: snackBarState == SnackBarState.success
-              ? AppColors.success
-              : snackBarState == SnackBarState.error
-              ? AppColors.error
-              : snackBarState == SnackBarState.warning
-              ? AppColors.warning
-              : AppColors.info,
-        ),
+        style: Theme.of(context).textTheme.titleMedium,
       ),
     ),
   );

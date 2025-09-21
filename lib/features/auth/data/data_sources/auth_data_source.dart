@@ -1,6 +1,8 @@
-import 'dart:developer';
+import 'dart:io';
 
+import 'package:e_commerce/core/error_handling/auth_error_handler.dart';
 import 'package:e_commerce/core/error_handling/server_exception.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/auth/data/models/login_model.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:e_commerce/core/shared/models/user_model.dart';
@@ -25,14 +27,16 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
         password: registerModel.password,
         data: registerModel.toJson(),
       );
-      log('is session null: ${authResponse.session.toString()}');
+
       if (authResponse.user != null) {
         return UserModel.fromAuthResponse(authResponse: authResponse);
       } else {
         throw ServerException(message: 'User is null');
       }
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } on AuthException catch (e) {
+      throw ServerException(message: AuthErrorHandler.mapAuthErrorToMessage(e));
+    } catch (_) {
+      throw ServerException(message: AppStrings.somethingWrongMsg);
     }
   }
 
@@ -49,8 +53,10 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
       } else {
         throw ServerException(message: 'User is null');
       }
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } on AuthException catch (e) {
+      throw ServerException(message: AuthErrorHandler.mapAuthErrorToMessage(e));
+    } catch (_) {
+      throw ServerException(message: AppStrings.somethingWrongMsg);
     }
   }
 }
