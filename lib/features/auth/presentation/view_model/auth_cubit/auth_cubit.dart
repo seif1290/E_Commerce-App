@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/error_handling/server_exception.dart';
-import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/features/auth/data/models/login_model.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
-import 'package:e_commerce/core/shared/entities/user_entity.dart';
 import 'package:e_commerce/features/auth/domain/repos/auth_repo.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -24,8 +22,8 @@ class AuthCubit extends Cubit<AuthState> {
         (failure) {
           emit(AuthState.failure(errMsg: failure.message));
         },
-        (userEntity) {
-          emit(AuthState.success(userEntity: userEntity));
+        (_) {
+          emit(AuthState.success());
         },
       );
     } on ServerException catch (e) {
@@ -42,8 +40,8 @@ class AuthCubit extends Cubit<AuthState> {
         (failure) {
           emit(AuthState.failure(errMsg: failure.message));
         },
-        (userEntity) {
-          emit(AuthState.success(userEntity: userEntity));
+        (_) {
+          emit(AuthState.success());
         },
       );
     } on ServerException catch (e) {
