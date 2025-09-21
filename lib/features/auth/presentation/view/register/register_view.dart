@@ -1,11 +1,9 @@
-import 'dart:developer';
-
 import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/snack_bar_state.dart';
-import 'package:e_commerce/core/utils/widgets/loader_transparent.dart';
+import 'package:e_commerce/core/shared/widgets/loader_transparent.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/form_section_register.dart';
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
@@ -29,10 +27,7 @@ class RegisterView extends StatelessWidget {
               snackMessage: errMsg,
               snackBarState: SnackBarState.error,
             ),
-            success: (userEntity) => context.go(
-              RoutePath.emailVerification,
-              extra: userEntity.email,
-            ),
+            success: (userEntity) => context.go(RoutePath.loading),
           );
         },
         child: SafeArea(

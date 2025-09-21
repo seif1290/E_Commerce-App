@@ -1,10 +1,13 @@
 import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/features/auth/data/models/login_model.dart';
+import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_validators.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_text_form_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class FormSectionLogin extends StatefulWidget {
@@ -60,7 +63,7 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
             isPassword: true,
             textInputAction: TextInputAction.done,
             onFieldSubmitted: (_) {
-              login();
+              _login();
             },
           ),
           const SizedBox(height: AppValues.spaceBtwItems),
@@ -83,9 +86,8 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
 
           // Login Button
           ElevatedButton(
-            onPressed: () {
-              login();
-            },
+            onPressed: () async => _login(),
+
             child: Text(AppStrings.signIn),
           ),
         ],
@@ -93,9 +95,14 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
     );
   }
 
-  void login() {
+  Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
-      // TODO: Login Logic
+      await context.read<AuthCubit>().login(
+        loginModel: LoginModel(
+          email: _emailCont.text,
+          password: _passwordCont.text,
+        ),
+      );
     }
   }
 }
