@@ -6,8 +6,9 @@ class LoadingState with _$LoadingState {
   const factory LoadingState.onboardingStarted() = _OnboardingStarted;
   const factory LoadingState.userNotAuthenticated({required String message}) =
       _UserNotAuthenticated;
-  const factory LoadingState.userAuthenticatedButNotVerified() =
-      _UserAuthenticatedButNotVerified;
+  const factory LoadingState.userAuthenticatedButNotVerified({
+    required String currentEmail,
+  }) = _UserAuthenticatedButNotVerified;
   const factory LoadingState.userAuthenticatedAndVerified() =
       _UserAuthenticatedAndVerified;
 }

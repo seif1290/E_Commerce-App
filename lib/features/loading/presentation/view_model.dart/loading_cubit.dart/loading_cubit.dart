@@ -27,7 +27,11 @@ class LoadingCubit extends Cubit<LoadingState> {
             emit(LoadingState.userAuthenticatedAndVerified());
           } else {
             // email not verified
-            emit(LoadingState.userAuthenticatedButNotVerified());
+            emit(
+              LoadingState.userAuthenticatedButNotVerified(
+                currentEmail: userEntity.email,
+              ),
+            );
           }
         },
       );
