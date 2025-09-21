@@ -69,16 +69,20 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
           const SizedBox(height: AppValues.spaceBtwItems),
 
           // Remember me and forgot password row
-          Row(
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.start,
             children: [
               const AuthCheckBox(),
               const Text(AppStrings.rememberMe),
-              const Spacer(),
-              TextButton(
-                onPressed: () {
-                  context.pushNamed(RoutePath.forgotPassword);
-                },
-                child: Text(AppStrings.forgotPassword),
+              SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
+              Flexible(
+                child: TextButton(
+                  onPressed: () {
+                    // TODO: go to forgot password
+                  },
+                  child: Text(AppStrings.forgotPassword),
+                ),
               ),
             ],
           ),
