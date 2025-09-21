@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/features/auth/data/models/login_model.dart';
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_text_form_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class FormSectionLogin extends StatefulWidget {
   const FormSectionLogin({super.key});
@@ -76,13 +74,11 @@ class _FormSectionLoginState extends State<FormSectionLogin> {
               const AuthCheckBox(),
               const Text(AppStrings.rememberMe),
               SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-              Flexible(
-                child: TextButton(
-                  onPressed: () {
-                    // TODO: go to forgot password
-                  },
-                  child: Text(AppStrings.forgotPassword),
-                ),
+              TextButton(
+                onPressed: () {
+                  // TODO: go to forgot password
+                },
+                child: Text(AppStrings.forgotPassword),
               ),
             ],
           ),
