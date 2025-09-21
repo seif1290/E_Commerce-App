@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:e_commerce/core/error_handling/server_exception.dart';
+import 'package:e_commerce/features/auth/data/models/login_model.dart';
 import 'package:e_commerce/features/auth/data/models/register_model.dart';
 import 'package:e_commerce/core/shared/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class SupabaseAuthDataSource {
   Future<UserModel> register({required RegisterModel registerModel});
+  Future<UserModel> login({required LoginModel loginModel});
 }
 
 class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
@@ -24,6 +26,24 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
         data: registerModel.toJson(),
       );
       log('is session null: ${authResponse.session.toString()}');
+      if (authResponse.user != null) {
+        return UserModel.fromAuthResponse(authResponse: authResponse);
+      } else {
+        throw ServerException(message: 'User is null');
+      }
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<UserModel> login({required LoginModel loginModel}) async {
+    try {
+      final AuthResponse authResponse = await _supabaseClient.auth
+          .signInWithPassword(
+            email: loginModel.email,
+            password: loginModel.password,
+          );
       if (authResponse.user != null) {
         return UserModel.fromAuthResponse(authResponse: authResponse);
       } else {
