@@ -48,6 +48,8 @@ class AppStrings {
   static const String emailVerificationTitle = 'Email Verification';
   static const String emailVerificationSubTitle =
       'Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.';
+  static const String emailVerificationMsg =
+      'You need to Check your email to verify your shop ease account';
   static const String emailVerificationButton = 'Continue';
 
   // Forgot password

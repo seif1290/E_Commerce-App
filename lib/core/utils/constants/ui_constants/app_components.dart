@@ -16,6 +16,7 @@ class AppComponents {
     BuildContext context, {
     required String snackMessage,
     required SnackBarState snackBarState,
+    Duration duration = const Duration(seconds: 4),
   }) => ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       backgroundColor: snackBarState == SnackBarState.success
@@ -29,6 +30,7 @@ class AppComponents {
         snackMessage,
         style: Theme.of(context).textTheme.titleMedium,
       ),
+      duration: duration,
     ),
   );
 }
