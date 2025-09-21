@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/routing/route_path.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
@@ -67,50 +68,14 @@ class _EmailVerificationViewState extends State<EmailVerificationView> {
               // Continue Button
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Continue action
+                  context.go(RoutePath.loading);
                 },
                 child: const Text(AppStrings.emailVerificationButton),
-              ),
-              // StreamBuilder(
-              //   stream: count(),
-              //   builder: (context, snapshot) {
-              //     print('rebule');
-
-              //     return Text(snapshot.data.toString());
-              //   },
-              // ),
-              const SizedBox(height: AppValues.spaceBtwItems),
-
-              // Resend Email
-              TextButton(
-                onPressed: canSendEmail
-                    ? () {
-                        // TODO: Resend email action
-                      }
-                    : null,
-                child: const Text(
-                  'Resend Email',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  Stream<int> _countDown() async* {
-    canSendEmail = false;
-    for (var i = 60; i >= 0; i--) {
-      if (i == 0) {
-        canSendEmail = true;
-      }
-      yield i;
-      await Future.delayed(Duration(seconds: 1));
-    }
   }
 }
