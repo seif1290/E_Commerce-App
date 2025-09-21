@@ -128,13 +128,13 @@ return success(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( String errMsg)?  failure,TResult Function( UserEntity userEntity)?  success,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( String errMsg)?  failure,TResult Function()?  success,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Failure() when failure != null:
 return failure(_that.errMsg);case _Success() when success != null:
-return success(_that.userEntity);case _:
+return success();case _:
   return orElse();
 
 }
@@ -152,13 +152,13 @@ return success(_that.userEntity);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( String errMsg)  failure,required TResult Function( UserEntity userEntity)  success,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( String errMsg)  failure,required TResult Function()  success,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _Loading():
 return loading();case _Failure():
 return failure(_that.errMsg);case _Success():
-return success(_that.userEntity);case _:
+return success();case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +175,13 @@ return success(_that.userEntity);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( String errMsg)?  failure,TResult? Function( UserEntity userEntity)?  success,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( String errMsg)?  failure,TResult? Function()?  success,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Failure() when failure != null:
 return failure(_that.errMsg);case _Success() when success != null:
-return success(_that.userEntity);case _:
+return success();case _:
   return null;
 
 }
@@ -323,66 +323,32 @@ as String,
 
 
 class _Success implements AuthState {
-  const _Success({required this.userEntity});
+  const _Success();
   
 
- final  UserEntity userEntity;
 
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$SuccessCopyWith<_Success> get copyWith => __$SuccessCopyWithImpl<_Success>(this, _$identity);
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Success&&(identical(other.userEntity, userEntity) || other.userEntity == userEntity));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Success);
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,userEntity);
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AuthState.success(userEntity: $userEntity)';
+  return 'AuthState.success()';
 }
 
 
 }
 
-/// @nodoc
-abstract mixin class _$SuccessCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) _then) = __$SuccessCopyWithImpl;
-@useResult
-$Res call({
- UserEntity userEntity
-});
 
 
-
-
-}
-/// @nodoc
-class __$SuccessCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(this._self, this._then);
-
-  final _Success _self;
-  final $Res Function(_Success) _then;
-
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? userEntity = null,}) {
-  return _then(_Success(
-userEntity: null == userEntity ? _self.userEntity : userEntity // ignore: cast_nullable_to_non_nullable
-as UserEntity,
-  ));
-}
-
-
-}
 
 // dart format on
