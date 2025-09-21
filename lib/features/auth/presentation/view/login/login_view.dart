@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/routing/route_path.dart';
-import 'package:e_commerce/core/shared/widgets/loader_transparent.dart';
+import 'package:e_commerce/core/shared/widgets/loading_transparent.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_colors.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
@@ -26,7 +26,7 @@ class LoginView extends StatelessWidget {
             snackMessage: errMsg,
             snackBarState: SnackBarState.error,
           ),
-          success: (userEntity) => context.go(RoutePath.loading),
+          success: () => context.go(RoutePath.loading),
         );
       },
       child: SafeArea(
@@ -95,8 +95,10 @@ class LoginView extends StatelessWidget {
             ),
             BlocBuilder<AuthCubit, AuthState>(
               builder: (context, state) {
-                state.whenOrNull(loading: () => const LoaderTransparent());
-                return const SizedBox.shrink();
+                return state.whenOrNull(
+                      loading: () => const LoadingTransparent(),
+                    ) ??
+                    const SizedBox.shrink();
               },
             ),
           ],

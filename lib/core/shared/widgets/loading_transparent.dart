@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoaderTransparent extends StatelessWidget {
-  const LoaderTransparent({super.key});
+class LoadingTransparent extends StatelessWidget {
+  const LoadingTransparent({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:e_commerce/core/error_handling/auth_error_handler.dart';
 import 'package:e_commerce/core/error_handling/server_exception.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';

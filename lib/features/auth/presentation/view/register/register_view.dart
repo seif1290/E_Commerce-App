@@ -3,7 +3,7 @@ import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/snack_bar_state.dart';
-import 'package:e_commerce/core/shared/widgets/loader_transparent.dart';
+import 'package:e_commerce/core/shared/widgets/loading_transparent.dart';
 import 'package:e_commerce/features/auth/presentation/view/auth_options.dart';
 import 'package:e_commerce/features/auth/presentation/view/register/form_section_register.dart';
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
@@ -27,7 +27,7 @@ class RegisterView extends StatelessWidget {
               snackMessage: errMsg,
               snackBarState: SnackBarState.error,
             ),
-            success: (userEntity) => context.go(RoutePath.loading),
+            success: () => context.go(RoutePath.loading),
           );
         },
         child: SafeArea(
@@ -58,8 +58,10 @@ class RegisterView extends StatelessWidget {
               ),
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
-                  state.whenOrNull(loading: () => const LoaderTransparent());
-                  return const SizedBox.shrink();
+                  return state.whenOrNull(
+                        loading: () => const LoadingTransparent(),
+                      ) ??
+                      const SizedBox.shrink();
                 },
               ),
             ],
