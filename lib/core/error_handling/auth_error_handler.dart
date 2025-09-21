@@ -18,7 +18,7 @@ abstract class AuthErrorHandler {
         case 'invalid_credentials':
           return 'Invalid email or password.';
         case 'email_not_confirmed':
-          return 'Please confirm your email before logging in.';
+          return 'Your email is not confirmed. Please try to sign up again with a valid email.';
         case 'user_not_found':
           return 'No account found with this email.';
         case 'weak_password':

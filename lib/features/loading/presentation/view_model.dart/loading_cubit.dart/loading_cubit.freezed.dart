@@ -131,14 +131,14 @@ return userAuthenticatedAndVerified(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  onboardingStarted,TResult Function( String message)?  userNotAuthenticated,TResult Function( String currentEmail)?  userAuthenticatedButNotVerified,TResult Function()?  userAuthenticatedAndVerified,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  onboardingStarted,TResult Function( String message)?  userNotAuthenticated,TResult Function( String currentEmail)?  userAuthenticatedButNotVerified,TResult Function( UserEntity userEntity)?  userAuthenticatedAndVerified,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _OnboardingStarted() when onboardingStarted != null:
 return onboardingStarted();case _UserNotAuthenticated() when userNotAuthenticated != null:
 return userNotAuthenticated(_that.message);case _UserAuthenticatedButNotVerified() when userAuthenticatedButNotVerified != null:
 return userAuthenticatedButNotVerified(_that.currentEmail);case _UserAuthenticatedAndVerified() when userAuthenticatedAndVerified != null:
-return userAuthenticatedAndVerified();case _:
+return userAuthenticatedAndVerified(_that.userEntity);case _:
   return orElse();
 
 }
@@ -156,14 +156,14 @@ return userAuthenticatedAndVerified();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  onboardingStarted,required TResult Function( String message)  userNotAuthenticated,required TResult Function( String currentEmail)  userAuthenticatedButNotVerified,required TResult Function()  userAuthenticatedAndVerified,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  onboardingStarted,required TResult Function( String message)  userNotAuthenticated,required TResult Function( String currentEmail)  userAuthenticatedButNotVerified,required TResult Function( UserEntity userEntity)  userAuthenticatedAndVerified,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _OnboardingStarted():
 return onboardingStarted();case _UserNotAuthenticated():
 return userNotAuthenticated(_that.message);case _UserAuthenticatedButNotVerified():
 return userAuthenticatedButNotVerified(_that.currentEmail);case _UserAuthenticatedAndVerified():
-return userAuthenticatedAndVerified();case _:
+return userAuthenticatedAndVerified(_that.userEntity);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -180,14 +180,14 @@ return userAuthenticatedAndVerified();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  onboardingStarted,TResult? Function( String message)?  userNotAuthenticated,TResult? Function( String currentEmail)?  userAuthenticatedButNotVerified,TResult? Function()?  userAuthenticatedAndVerified,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  onboardingStarted,TResult? Function( String message)?  userNotAuthenticated,TResult? Function( String currentEmail)?  userAuthenticatedButNotVerified,TResult? Function( UserEntity userEntity)?  userAuthenticatedAndVerified,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _OnboardingStarted() when onboardingStarted != null:
 return onboardingStarted();case _UserNotAuthenticated() when userNotAuthenticated != null:
 return userNotAuthenticated(_that.message);case _UserAuthenticatedButNotVerified() when userAuthenticatedButNotVerified != null:
 return userAuthenticatedButNotVerified(_that.currentEmail);case _UserAuthenticatedAndVerified() when userAuthenticatedAndVerified != null:
-return userAuthenticatedAndVerified();case _:
+return userAuthenticatedAndVerified(_that.userEntity);case _:
   return null;
 
 }
@@ -395,32 +395,66 @@ as String,
 
 
 class _UserAuthenticatedAndVerified implements LoadingState {
-  const _UserAuthenticatedAndVerified();
+  const _UserAuthenticatedAndVerified({required this.userEntity});
   
 
+ final  UserEntity userEntity;
 
-
+/// Create a copy of LoadingState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UserAuthenticatedAndVerifiedCopyWith<_UserAuthenticatedAndVerified> get copyWith => __$UserAuthenticatedAndVerifiedCopyWithImpl<_UserAuthenticatedAndVerified>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserAuthenticatedAndVerified);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserAuthenticatedAndVerified&&(identical(other.userEntity, userEntity) || other.userEntity == userEntity));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,userEntity);
 
 @override
 String toString() {
-  return 'LoadingState.userAuthenticatedAndVerified()';
+  return 'LoadingState.userAuthenticatedAndVerified(userEntity: $userEntity)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$UserAuthenticatedAndVerifiedCopyWith<$Res> implements $LoadingStateCopyWith<$Res> {
+  factory _$UserAuthenticatedAndVerifiedCopyWith(_UserAuthenticatedAndVerified value, $Res Function(_UserAuthenticatedAndVerified) _then) = __$UserAuthenticatedAndVerifiedCopyWithImpl;
+@useResult
+$Res call({
+ UserEntity userEntity
+});
 
 
+
+
+}
+/// @nodoc
+class __$UserAuthenticatedAndVerifiedCopyWithImpl<$Res>
+    implements _$UserAuthenticatedAndVerifiedCopyWith<$Res> {
+  __$UserAuthenticatedAndVerifiedCopyWithImpl(this._self, this._then);
+
+  final _UserAuthenticatedAndVerified _self;
+  final $Res Function(_UserAuthenticatedAndVerified) _then;
+
+/// Create a copy of LoadingState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? userEntity = null,}) {
+  return _then(_UserAuthenticatedAndVerified(
+userEntity: null == userEntity ? _self.userEntity : userEntity // ignore: cast_nullable_to_non_nullable
+as UserEntity,
+  ));
+}
+
+
+}
 
 // dart format on

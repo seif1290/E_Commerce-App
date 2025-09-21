@@ -9,6 +9,7 @@ class LoadingState with _$LoadingState {
   const factory LoadingState.userAuthenticatedButNotVerified({
     required String currentEmail,
   }) = _UserAuthenticatedButNotVerified;
-  const factory LoadingState.userAuthenticatedAndVerified() =
-      _UserAuthenticatedAndVerified;
+  const factory LoadingState.userAuthenticatedAndVerified({
+    required UserEntity userEntity,
+  }) = _UserAuthenticatedAndVerified;
 }

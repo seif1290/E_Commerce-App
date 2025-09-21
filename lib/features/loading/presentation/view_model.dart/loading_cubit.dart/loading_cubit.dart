@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_commerce/core/shared/entities/user_entity.dart';
 import 'package:e_commerce/features/loading/data/repos/loading_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -24,7 +25,9 @@ class LoadingCubit extends Cubit<LoadingState> {
         (userEntity) {
           if (userEntity.isEmailConfirmed) {
             // email verified
-            emit(LoadingState.userAuthenticatedAndVerified());
+            emit(
+              LoadingState.userAuthenticatedAndVerified(userEntity: userEntity),
+            );
           } else {
             // email not verified
             emit(
