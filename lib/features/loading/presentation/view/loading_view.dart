@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:e_commerce/core/routing/route_path.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';
+import 'package:e_commerce/core/utils/constants/ui_constants/snack_bar_state.dart';
 import 'package:e_commerce/features/loading/presentation/view_model.dart/loading_cubit.dart/loading_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,9 +33,17 @@ class _LoadingViewState extends State<LoadingView> {
         state.whenOrNull(
           onboardingStarted: () => context.go(RoutePath.onboarding),
           userNotAuthenticated: (msg) {
-            log('message: $msg');
             context.go(RoutePath.login);
           },
+          userAuthenticatedButNotVerified: (email) {
+            AppComponents.showSnackBar(
+              context,
+              snackMessage: AppStrings.emailVerificationMsg,
+              snackBarState: SnackBarState.info,
+            );
+            context.go(RoutePath.emailVerification, extra: email);
+          },
+          userAuthenticatedAndVerified: () => context.go(RoutePath.home),
         );
       },
       child: Scaffold(
