@@ -40,9 +40,9 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> logout() async {
+  Future<Either<Failure, void>> singOut() async {
     try {
-      await _authDataSource.logout();
+      await _authDataSource.singOut();
       return right(null);
     } on ServerException catch (e) {
       return left(Failure(message: e.message));

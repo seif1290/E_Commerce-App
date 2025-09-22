@@ -9,5 +9,5 @@ abstract interface class AuthRepo {
     required RegisterModel registerModel,
   });
   Future<Either<Failure, UserEntity>> login({required LoginModel loginModel});
-  Future<Either<Failure, void>> logout();
+  Future<Either<Failure, void>> singOut();
 }

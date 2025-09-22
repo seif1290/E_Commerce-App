@@ -9,7 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract interface class SupabaseAuthDataSource {
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> login({required LoginModel loginModel});
-  Future<void> logout();
+  Future<void> singOut();
 }
 
 class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
@@ -60,7 +60,7 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
   }
 
   @override
-  Future logout() async {
+  Future singOut() async {
     try {
       await _supabaseClient.auth.signOut();
     } on AuthException catch (e) {
