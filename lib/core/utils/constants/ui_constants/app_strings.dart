@@ -51,6 +51,7 @@ class AppStrings {
   static const String emailVerificationMsg =
       'You need to Check your email to verify your shop ease account';
   static const String emailVerificationButton = 'Continue';
+  static const String signOut = 'Sign Out';
 
   // Forgot password
   static const String forgotPasswordTitle = 'Forgot Password';

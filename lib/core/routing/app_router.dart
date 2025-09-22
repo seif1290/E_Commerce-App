@@ -9,6 +9,8 @@ import 'package:e_commerce/features/auth/presentation/view/login/login_view.dart
 import 'package:e_commerce/features/auth/presentation/view/register/register_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/success_view.dart';
 import 'package:e_commerce/features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view_model/email_verification_cubit/email_verification_cubit.dart';
+import 'package:e_commerce/features/home/domain/use_cases/sign_out_use_case.dart';
 import 'package:e_commerce/features/home/presentation/view/home_view.dart';
 import 'package:e_commerce/features/loading/presentation/view/loading_view.dart';
 import 'package:e_commerce/features/onboarding/data/data_source/onboarings_list.dart';
@@ -59,8 +61,11 @@ class AppRouter {
 
       GoRoute(
         path: RoutePath.emailVerification,
-        builder: (context, state) =>
-            EmailVerificationView(email: state.extra! as String),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              EmailVerificationCubit(authRepo: getIt.get<AuthRepo>()),
+          child: EmailVerificationView(email: state.extra! as String),
+        ),
       ),
       GoRoute(
         path: RoutePath.forgotPassword,
@@ -84,7 +89,11 @@ class AppRouter {
       ),
 
       // Home
-      GoRoute(path: RoutePath.home, builder: (context, state) => HomeView()),
+      GoRoute(
+        path: RoutePath.home,
+        builder: (context, state) =>
+            HomeView(signOutUseCase: getIt.get<SignOutUseCase>()),
+      ),
     ],
   );
 

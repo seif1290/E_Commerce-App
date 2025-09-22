@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/services/shared_prefs_service.dart';
 import 'package:e_commerce/core/utils/secrets/app_secrets.dart';
+import 'package:e_commerce/features/home/domain/use_cases/sign_out_use_case.dart';
 import 'package:e_commerce/features/loading/data/data_sources/loading_data_source.dart';
 import 'package:e_commerce/features/loading/data/repos/loading_repo.dart';
 import 'package:e_commerce/features/loading/data/repos/loading_repo_impl.dart';
@@ -38,6 +39,20 @@ Future<void> setup() async {
   _initAuth();
 
   _initLoading();
+
+  _initHome();
+}
+
+void _initLoading() {
+  getIt.registerSingleton<LoadingDataSource>(
+    LoadingDataSourceImpl(supabaseClient: getIt.get<SupabaseClient>()),
+  );
+  getIt.registerSingleton<LoadingRepo>(
+    LoadingRepoImpl(
+      sharedPrefsService: getIt.get<SharedPrefsService>(),
+      loadingDataSource: getIt.get<LoadingDataSource>(),
+    ),
+  );
 }
 
 void _initAuth() {
@@ -53,14 +68,13 @@ void _initAuth() {
   );
 }
 
-void _initLoading() {
-  getIt.registerSingleton<LoadingDataSource>(
-    LoadingDataSourceImpl(supabaseClient: getIt.get<SupabaseClient>()),
-  );
-  getIt.registerSingleton<LoadingRepo>(
-    LoadingRepoImpl(
-      sharedPrefsService: getIt.get<SharedPrefsService>(),
-      loadingDataSource: getIt.get<LoadingDataSource>(),
-    ),
+void _initHome() {
+  // Data Sources
+
+  // Repos
+
+  // UseCases
+  getIt.registerLazySingleton<SignOutUseCase>(
+    () => SignOutUseCase(authRepo: getIt.get<AuthRepo>()),
   );
 }
