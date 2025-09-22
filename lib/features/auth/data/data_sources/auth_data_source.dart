@@ -9,6 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 abstract interface class SupabaseAuthDataSource {
   Future<UserModel> register({required RegisterModel registerModel});
   Future<UserModel> login({required LoginModel loginModel});
+  Future<void> logout();
 }
 
 class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
@@ -51,6 +52,17 @@ class SupabaseAuthDataSourceImpl implements SupabaseAuthDataSource {
       } else {
         throw ServerException(message: 'User is null');
       }
+    } on AuthException catch (e) {
+      throw ServerException(message: AuthErrorHandler.mapAuthErrorToMessage(e));
+    } catch (_) {
+      throw ServerException(message: AppStrings.somethingWrongMsg);
+    }
+  }
+
+  @override
+  Future logout() async {
+    try {
+      await _supabaseClient.auth.signOut();
     } on AuthException catch (e) {
       throw ServerException(message: AuthErrorHandler.mapAuthErrorToMessage(e));
     } catch (_) {

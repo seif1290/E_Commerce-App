@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/routing/route_path.dart';
-import 'package:e_commerce/core/shared/entities/user_entity.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_components.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_images.dart';
 import 'package:e_commerce/core/utils/constants/ui_constants/app_strings.dart';

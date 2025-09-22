@@ -38,4 +38,14 @@ class AuthRepoImpl implements AuthRepo {
       return left(Failure(message: e.message));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> logout() async {
+    try {
+      await _authDataSource.logout();
+      return right(null);
+    } on ServerException catch (e) {
+      return left(Failure(message: e.message));
+    }
+  }
 }
