@@ -5,15 +5,15 @@ import 'package:e_commerce/core/utils/constants/ui_constants/app_values.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class EmailVerificationView extends StatefulWidget {
+class OtpVerificationView extends StatefulWidget {
   final String email;
-  const EmailVerificationView({super.key, required this.email});
+  const OtpVerificationView({super.key, required this.email});
 
   @override
-  State<EmailVerificationView> createState() => _EmailVerificationViewState();
+  State<OtpVerificationView> createState() => _OtpVerificationViewState();
 }
 
-class _EmailVerificationViewState extends State<EmailVerificationView> {
+class _OtpVerificationViewState extends State<OtpVerificationView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
